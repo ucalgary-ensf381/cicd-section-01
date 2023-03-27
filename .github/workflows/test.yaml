@@ -19,17 +19,6 @@ jobs:
 
     # series of steps to finish the job.
     steps:
-      # name of the step.
-      # steps run sequentially.
-      # this is optionale
-      - name: checkout
-        # each step can either have "uses" or "run".
-        # "uses" run an action written somewhere other than this workflow .
-        # usually from the community.
-        # this action checks out the repo code to the runner (instance)
-        # running the action
-        uses: actions/checkout@v3
-
       # another step.
       # this step runs a bash (Ubuntu's default shell) command
       - name: list files
