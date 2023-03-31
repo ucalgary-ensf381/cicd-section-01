@@ -6,7 +6,7 @@ name: Continuous Integration
 # here, we only have "pull_request", so the workflow will run
 # whenever we create a pull request.
 # other examples: [push] and [pull_request, push]
-on: [push]
+on: [pull_request]
 
 # each workflow must have at least one job.
 # jobs run in parallel by default (we can change that).
@@ -22,5 +22,8 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
 
-      - name: list files
-        run: ls
+      - name: install pytest
+        run: pip install pytest
+
+      - name: run tests
+        run: python -m pytest -v
