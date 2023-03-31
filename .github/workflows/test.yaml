@@ -13,7 +13,7 @@ on: [pull_request]
 # each job groups together a series of steps to accomplish a purpose.
 jobs:
   # name of the job
-  first:
+  test:
     # the platform or OS that the workflow will run on.
     runs-on: ubuntu-latest
 
@@ -27,3 +27,16 @@ jobs:
 
       - name: run tests
         run: python -m pytest -v
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: install pylint
+        run: pip install pylint
+
+      - name: run lint
+        run: python -m pylint main.py
