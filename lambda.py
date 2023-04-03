@@ -1,2 +1,5 @@
 def handler(event, context):
-    print("v1")
+    return {
+        "statusCode": 200,
+        "body": "v1"
+    }
