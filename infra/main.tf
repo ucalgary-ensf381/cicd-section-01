@@ -23,7 +23,7 @@ resource "aws_iam_user" "gh" {
 data "aws_iam_policy_document" "gh" {
   statement {
     effect    = "Allow"
-    actions   = ["s3:PutObject", "lambda:UpdateFunctionCode", "s3:*"]
+    actions   = ["lambda:UpdateFunctionCode", "s3:*"]
     resources = ["${local.s3_arn}", "${local.s3_arn}/*", "${aws_lambda_function.lambda.arn}"]
   }
 }
@@ -75,6 +75,7 @@ resource "aws_lambda_function" "lambda" {
 
   # see all available runtimes here: https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime
   runtime = "python3.9"
+  timeout = 20
 }
 
 # create a policy for publishing logs to CloudWatch
