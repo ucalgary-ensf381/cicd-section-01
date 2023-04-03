@@ -23,8 +23,8 @@ resource "aws_iam_user" "gh" {
 data "aws_iam_policy_document" "gh" {
   statement {
     effect    = "Allow"
-    actions   = ["s3:PutObject"]
-    resources = ["${local.s3_arn}", "${local.s3_arn}/*"]
+    actions   = ["s3:PutObject", "lambda:UpdateFunctionCode"]
+    resources = ["${local.s3_arn}", "${local.s3_arn}/*", "${aws_lambda_function.lambda.arn}"]
   }
 }
 
