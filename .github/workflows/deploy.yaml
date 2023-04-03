@@ -22,3 +22,6 @@ jobs:
 
       - name: upload to s3
         run: aws s3 cp artifact.zip s3://no-more-extension-3/artifact.zip
+
+      - name: update Lambda code
+        run: aws lambda update-function-code --s3-key artifact.zip --s3-bucket  no-more-extension-3 --function-name cicd-section01
