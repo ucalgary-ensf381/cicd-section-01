@@ -1,4 +1,5 @@
 from main import *
+from lambda_func import *
 
 def test_add():
     res = add(5, 5)
@@ -15,3 +16,7 @@ def test_multiply():
 def test_divide():
     res = divide(25, 3)
     assert res == 8
+
+def test_get_ip():
+    res = get_public_ip()
+    assert len(res) > 0

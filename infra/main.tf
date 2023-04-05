@@ -36,7 +36,7 @@ resource "aws_iam_user_policy" "gh" {
 
 locals {
   function_name = "cicd-section01"
-  handler_name  = "lambda.handler"
+  handler_name  = "lambda_func.handler"
   artifact_name = "artifact.zip"
 }
 
