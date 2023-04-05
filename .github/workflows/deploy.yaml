@@ -28,5 +28,13 @@ jobs:
       - name: upload to s3
         run: aws s3 cp artifact.zip s3://${{ env.BUCKET }}/artifact.zip
 
-      - name: update Lambda code
-        run: aws lambda update-function-code --s3-key artifact.zip --s3-bucket ${{ env.BUCKET }} --function-name cicd-section01
+      - name: Updating Lambda
+        uses: masoudkarimif/gh-action-lambda-update-slack@main
+        with:
+          s3_bucket: ${{ env.BUCKET }}
+          s3_key: artifact.zip
+          code_path: ./artifact.zip
+          aws_region: ca-central-1
+          env: PROD
+          function_name: cicd-section02
+          slack_hook: https://hooks.slack.com/services/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
