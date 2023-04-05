@@ -33,20 +33,20 @@ inputs:
     description: 'Name of the environment (e.g. dev, stage, prod)'
     required: false
 
-runs:
-  using: 'docker'
-  image: 'docker://masoudkf/docker-lambda-deploy:latest'
-  args:
-    - ${{ inputs.s3_bucket }}
-    - ${{ inputs.s3_key }}
-    - ${{ inputs.function_name }}
-    - ${{ inputs.code_path }}
-    - ${{ inputs.working_directory }}
-    - ${{ inputs.aws_region }}
-    - ${{ inputs.aws_access_key_id }}
-    - ${{ inputs.aws_secret_access_key }}
-    - ${{ inputs.slack_hook }}
-    - ${{ inputs.env }}
-branding:
-  icon: 'upload-cloud'
-  color: 'orange'
+# runs:
+#   using: 'docker'
+#   image: 'docker://masoudkf/docker-lambda-deploy:latest'
+#   args:
+#     - ${{ inputs.s3_bucket }}
+#     - ${{ inputs.s3_key }}
+#     - ${{ inputs.function_name }}
+#     - ${{ inputs.code_path }}
+#     - ${{ inputs.working_directory }}
+#     - ${{ inputs.aws_region }}
+#     - ${{ inputs.aws_access_key_id }}
+#     - ${{ inputs.aws_secret_access_key }}
+#     - ${{ inputs.slack_hook }}
+#     - ${{ inputs.env }}
+# branding:
+#   icon: 'upload-cloud'
+#   color: 'orange'
