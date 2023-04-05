@@ -36,5 +36,5 @@ jobs:
           code_path: ./artifact.zip
           aws_region: ca-central-1
           env: PROD
-          function_name: cicd-section02
+          function_name: cicd-section01
           slack_hook: https://hooks.slack.com/services/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
