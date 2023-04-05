@@ -1,9 +1,10 @@
 import requests
+import json
 
 def handler(event, context):
     return {
         "statusCode": 200,
-        "body": get_public_ip()
+        "body": json.dumps({ "ip": get_public_ip(), "version": "10"})
     }
 
 def get_public_ip():
